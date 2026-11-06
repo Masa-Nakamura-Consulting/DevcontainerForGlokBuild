@@ -14,4 +14,14 @@ git config --global user.name "${GIT_AUTHOR_NAME:-grok-devcontainer}"
 git config --global user.email "${GIT_AUTHOR_EMAIL:-grok-devcontainer@local}"
 git config --global --add safe.directory "*"
 
+# Named Volume for node_modules is often root-owned on first create.
+NODE_MODULES="$(pwd)/node_modules"
+if command -v sudo >/dev/null 2>&1; then
+  sudo mkdir -p "$NODE_MODULES"
+  sudo chown -R "$(id -u):$(id -g)" "$NODE_MODULES"
+else
+  mkdir -p "$NODE_MODULES"
+  chown -R "$(id -u):$(id -g)" "$NODE_MODULES" || true
+fi
+
 echo "master 直 push 禁止は GitHub branch protection 側で維持すること。"
