@@ -1,0 +1,16 @@
+<ul id="todo-list">
+  {% for todo in todos %}
+  <li id="todo-{{ todo.id }}" class="{{ 'done' if todo.done else '' }}">
+    <button class="title" type="button"
+            hx-post="/todos/{{ todo.id }}/toggle"
+            hx-target="#todo-list"
+            hx-swap="outerHTML">{{ todo.title }}</button>
+    <button type="button"
+            hx-delete="/todos/{{ todo.id }}"
+            hx-target="#todo-list"
+            hx-swap="outerHTML">Delete</button>
+  </li>
+  {% else %}
+  <li class="empty">Nothing here yet</li>
+  {% endfor %}
+</ul>

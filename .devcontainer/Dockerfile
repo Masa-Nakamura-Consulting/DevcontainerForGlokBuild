@@ -2,7 +2,7 @@ FROM mcr.microsoft.com/devcontainers/base:ubuntu-24.04
 
 USER root
 
-# Runtime is non-root (vscode) with no-new-privileges, so apt cannot run later.
+# Runtime is non-root (vscode), so apt cannot run later.
 # Install desktop (Xvfb/VNC) plus Playwright OS libs at image build time.
 # Browser binaries themselves: npx playwright install (user cache, no root).
 # Package names match Playwright install-deps for Ubuntu 24.04 (noble, t64).
@@ -104,7 +104,8 @@ COPY .devcontainer/start-desktop.sh /usr/local/bin/start-desktop.sh
 COPY .devcontainer/docker-entrypoint.sh /usr/local/bin/devcontainer-entrypoint.sh
 RUN chmod 755 /usr/local/bin/start-desktop.sh /usr/local/bin/devcontainer-entrypoint.sh \
     && mkdir -p /home/vscode /tmp/vnc \
-    && chown -R vscode:vscode /home/vscode /tmp/vnc
+    && mkdir -p /var/uv-venvs \
+    && chown -R vscode:vscode /home/vscode /tmp/vnc /var/uv-venvs
 
 USER vscode
 WORKDIR /home/vscode

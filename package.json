@@ -1,0 +1,7 @@
+{
+  "name": "devcontainer-samples",
+  "private": true,
+  "workspaces": [
+    "samples/react"
+  ]
+}

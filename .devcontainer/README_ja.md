@@ -1,1 +1,1 @@
-このディレクトリには、VS CodeからGrok Build, Muse Code, Codex, Claude Code, and Google AntigravityなどをAFK Pilotから安全に操作し、開発やテストでホスト環境に影響を与えないようにする設定ファイルが格納されています。使い方は、ルートディレクトリのREADME.md (English)やREADME_ja.md (Japanese)をご覧ください。
+このディレクトリには、VS CodeからGrok Build, Muse Code, Codex, Claude Code, and Google AntigravityなどをAFK Pilotから安全に操作し、開発やテストでホスト環境に影響を与えないようにする設定ファイルが格納されています。使い方は、ルートディレクトリのREADME.md (English)やREADME_jp.md (Japanese)をご覧ください。

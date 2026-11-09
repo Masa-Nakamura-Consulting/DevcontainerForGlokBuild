@@ -18,7 +18,8 @@
     "DISPLAY": ":1",
     "GH_TOKEN": "${localEnv:GH_TOKEN}",
     "TMPDIR": "/tmp",
-    "npm_config_cache": "/home/vscode/.npm"
+    "npm_config_cache": "/home/vscode/.npm",
+    "UV_PROJECT_ENVIRONMENT": "/var/uv-venvs/"
   },
 
   "remoteEnv": {
@@ -62,9 +63,7 @@
       }
     }
   },
-
   "capAdd": [],
   "privileged": false,
-  "securityOpt": ["no-new-privileges:true"],
   "runArgs": ["--memory=4g", "--cpus=2"]
 }
