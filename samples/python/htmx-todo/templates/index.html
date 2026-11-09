@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>HTMX ToDo</title>
+  <script src="https://unpkg.com/htmx.org@2.0.4"></script>
+  <style>
+    :root { color-scheme: light dark; }
+    body { font-family: system-ui, sans-serif; margin: 2rem auto; max-width: 32rem; }
+    form.add { display: flex; gap: 0.5rem; }
+    form.add input { flex: 1; padding: 0.4rem 0.6rem; }
+    ul { list-style: none; padding: 0; }
+    li { display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0; border-bottom: 1px solid #8884; }
+    li .title { flex: 1; background: none; border: 0; text-align: left; font: inherit; cursor: pointer; }
+    li.done .title { text-decoration: line-through; opacity: 0.6; }
+    .empty { color: #888; }
+  </style>
+</head>
+<body data-full-loads="1">
+  <main>
+    <h1>ToDo</h1>
+    <form class="add" hx-post="/todos" hx-target="#todo-list" hx-swap="outerHTML" hx-on::after-request="if (event.detail.successful) this.reset()">
+      <input name="title" required maxlength="200" placeholder="What needs doing?" aria-label="Task">
+      <button type="submit">Add</button>
+    </form>
+    {% include "partials/todo_list.html" %}
+  </main>
+</body>
+</html>

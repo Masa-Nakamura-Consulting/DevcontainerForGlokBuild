@@ -1,0 +1,9 @@
+:root { color-scheme: light dark; }
+body { font-family: system-ui, sans-serif; margin: 2rem auto; max-width: 32rem; }
+form.add { display: flex; gap: 0.5rem; }
+form.add input { flex: 1; padding: 0.4rem 0.6rem; }
+ul { list-style: none; padding: 0; }
+li { display: flex; align-items: center; gap: 0.5rem; padding: 0.4rem 0; border-bottom: 1px solid #8884; }
+li .title { flex: 1; background: none; border: 0; text-align: left; font: inherit; cursor: pointer; }
+li.done .title { text-decoration: line-through; opacity: 0.6; }
+.empty { color: #888; }
